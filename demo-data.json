@@ -1,0 +1,156 @@
+{
+  "transactions": [
+    {
+      "id": "92061106-528d-4753-91a0-be5b0d4393bd",
+      "name": "Monthly salary",
+      "category": "Salary",
+      "type": "income",
+      "amount": 125000,
+      "date": "2026-10-01",
+      "account": "Primary account"
+    },
+    {
+      "id": "e8459993-8998-4938-9ce7-8135e9715ba3",
+      "name": "Design project",
+      "category": "Freelance",
+      "type": "income",
+      "amount": 18500,
+      "date": "2026-10-03",
+      "account": "Primary account"
+    },
+    {
+      "id": "575813d1-242b-4b98-84c0-556415c03357",
+      "name": "Apartment rent",
+      "category": "Housing",
+      "type": "expense",
+      "amount": 28000,
+      "date": "2026-10-02",
+      "account": "Primary account"
+    },
+    {
+      "id": "04368843-6771-4108-b239-27b3c55bcbb5",
+      "name": "Grocery run",
+      "category": "Food & dining",
+      "type": "expense",
+      "amount": 4260,
+      "date": "2026-10-04",
+      "account": "Everyday card"
+    },
+    {
+      "id": "5326f4a8-6170-4a41-b319-4b455063b944",
+      "name": "Metro card",
+      "category": "Transport",
+      "type": "expense",
+      "amount": 1200,
+      "date": "2026-10-05",
+      "account": "Everyday card"
+    },
+    {
+      "id": "b78f93e0-9fe1-432f-a905-c5451639b9ca",
+      "name": "Internet & mobile",
+      "category": "Utilities",
+      "type": "expense",
+      "amount": 1899,
+      "date": "2026-10-06",
+      "account": "Primary account"
+    },
+    {
+      "id": "7bf49ff6-a9fb-4d2d-bb18-6f750c943d85",
+      "name": "Weekend brunch",
+      "category": "Food & dining",
+      "type": "expense",
+      "amount": 1650,
+      "date": "2026-10-06",
+      "account": "Everyday card"
+    },
+    {
+      "id": "001985a5-82b2-4631-9d23-40b969752761",
+      "name": "Online course",
+      "category": "Education",
+      "type": "expense",
+      "amount": 3499,
+      "date": "2026-10-07",
+      "account": "Everyday card"
+    },
+    {
+      "id": "95d93064-a1f9-4ce1-98d5-9d0fafc6b9eb",
+      "name": "Project payment",
+      "category": "Freelance",
+      "type": "income",
+      "amount": 8500,
+      "date": "2026-10-08",
+      "account": "Primary account"
+    },
+    {
+      "id": "4de00a81-d514-4a2f-8b18-861ba1a9fbd3",
+      "name": "Pharmacy",
+      "category": "Health",
+      "type": "expense",
+      "amount": 780,
+      "date": "2026-10-08",
+      "account": "Everyday card"
+    },
+    {
+      "id": "0de0c544-1b6f-4b47-97d6-91ecd8398a87",
+      "name": "Coffee & lunch",
+      "category": "Food & dining",
+      "type": "expense",
+      "amount": 940,
+      "date": "2026-10-09",
+      "account": "Everyday card"
+    },
+    {
+      "id": "2a24dea7-409e-4621-abd6-83520e59d848",
+      "name": "Streaming plan",
+      "category": "Entertainment",
+      "type": "expense",
+      "amount": 649,
+      "date": "2026-10-09",
+      "account": "Everyday card"
+    },
+    {
+      "id": "f0ace80b-2d50-49aa-8561-9a136fb64172",
+      "name": "Electricity bill",
+      "category": "Utilities",
+      "type": "expense",
+      "amount": 2170,
+      "date": "2026-10-10",
+      "account": "Primary account"
+    },
+    {
+      "id": "81a3a187-47fa-4964-9338-8d55f800b333",
+      "name": "Household supplies",
+      "category": "Shopping",
+      "type": "expense",
+      "amount": 2320,
+      "date": "2026-10-10",
+      "account": "Everyday card"
+    }
+  ],
+  "budgets": [
+    {
+      "id": "food",
+      "category": "Food & dining",
+      "limit": 12000,
+      "color": "#6878ef"
+    },
+    {
+      "id": "transport",
+      "category": "Transport",
+      "limit": 6000,
+      "color": "#35b8a6"
+    },
+    {
+      "id": "shopping",
+      "category": "Shopping",
+      "limit": 8000,
+      "color": "#f2a54a"
+    },
+    {
+      "id": "utilities",
+      "category": "Utilities",
+      "limit": 5000,
+      "color": "#d277aa"
+    }
+  ]
+}

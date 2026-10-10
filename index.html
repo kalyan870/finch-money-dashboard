@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f7fb" />
+    <meta name="description" content="A calm, clear view of your money. Local demo dashboard with fictional sample data." />
+    <title>Finch — Money Dashboard</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#overview" aria-label="Finch home"><span class="brand-mark"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M17 2.5 31 10v14L17 31.5 3 24V10l14-7.5Z" fill="currentColor"/><path d="M11 19.2c0-5.2 4.5-8.8 12.2-8.8-.2 7.5-3.5 12-8.4 12-2.3 0-3.8-1.3-3.8-3.2Z" fill="#fff"/><path d="M10 24c2.1-4.9 5.5-7.4 10.1-8.7" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span><span>finch<span class="brand-period">.</span></span></a>
+        <div class="workspace-chip"><span class="avatar">K</span><span><strong>Kalyan’s space</strong><small>Personal workspace</small></span><span class="chevrons">⌃<br />⌄</span></div>
+        <nav class="nav-list">
+          <p class="nav-label">WORKSPACE</p>
+          <a class="nav-item active" href="#overview"><span class="nav-icon">▦</span>Overview</a>
+          <a class="nav-item" href="#transactions"><span class="nav-icon">↔</span>Transactions</a>
+          <a class="nav-item" href="#budgets"><span class="nav-icon">◉</span>Budgets<span class="nav-count" id="budget-count">4</span></a>
+          <a class="nav-item" href="#insights"><span class="nav-icon">⌁</span>Insights</a>
+          <p class="nav-label nav-label-spaced">MANAGE</p>
+          <button class="nav-item nav-button" id="accounts-button" type="button"><span class="nav-icon">▣</span>Accounts<span class="coming-soon">DEMO</span></button>
+          <button class="nav-item nav-button" id="settings-button" type="button"><span class="nav-icon">⚙</span>Settings</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="sync-card"><span class="sync-dot"></span><span><strong>Everything is saved</strong><small>Stored on this computer</small></span></div>
+          <div class="profile"><span class="profile-avatar">K</span><span><strong>Kalyan</strong><small>Demo account</small></span><span class="more">···</span></div>
+        </div>
+      </aside>
+
+      <main class="main" id="overview">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Workspace</span><span class="crumb-sep">/</span><strong>Overview</strong></div>
+          <div class="top-actions"><span class="demo-pill"><span></span>Demo data</span><span class="today" id="today-label"></span><button class="icon-button" id="help-button" aria-label="About this demo" title="About this demo">?</button><span class="top-avatar">K</span></div>
+        </header>
+        <div class="page-wrap">
+          <section class="welcome-row">
+            <div><p class="eyebrow">SATURDAY, OCTOBER <span id="day-number">10</span></p><h1>Your money, <span>in perspective.</span></h1><p class="welcome-sub">A little more clarity for the things you want to do.</p></div>
+            <div class="month-select-wrap"><span class="calendar-icon">▦</span><label for="month-filter" class="sr-only">Select month</label><select id="month-filter" class="month-select"></select><span class="select-arrow">⌄</span></div>
+          </section>
+          <div class="notice-strip"><span class="notice-icon">i</span><span>Sample dashboard · all numbers are fictional and stored only on this computer.</span><button id="dismiss-notice" aria-label="Dismiss sample data notice">×</button></div>
+
+          <section class="metric-grid" aria-label="Monthly overview">
+            <article class="metric-card balance-card"><div class="metric-top"><span class="metric-label">TOTAL BALANCE</span><span class="metric-icon balance-icon">◒</span></div><div class="metric-value" id="balance-value">₹0</div><div class="metric-foot"><span class="balance-note"><span class="tiny-up">↗</span> Across your accounts</span><span class="metric-caption">Sample balance</span></div><div class="balance-orbit orbit-one"></div><div class="balance-orbit orbit-two"></div></article>
+            <article class="metric-card"><div class="metric-top"><span class="metric-label">INCOME</span><span class="metric-icon income-icon">↓</span></div><div class="metric-value" id="income-value">₹0</div><div class="metric-foot"><span class="trend-chip positive" id="income-note">↗ This month</span><span class="metric-caption">This month</span></div></article>
+            <article class="metric-card"><div class="metric-top"><span class="metric-label">SPENDING</span><span class="metric-icon spending-icon">↑</span></div><div class="metric-value" id="spending-value">₹0</div><div class="metric-foot"><span class="trend-chip neutral" id="spending-note">Within your plan</span><span class="metric-caption">This month</span></div></article>
+            <article class="metric-card savings-card"><div class="metric-top"><span class="metric-label">SAVINGS RATE</span><span class="metric-icon savings-icon">✳</span></div><div class="metric-value" id="savings-value">0%</div><div class="metric-foot"><span class="savings-line"><span id="savings-bar"></span></span><span class="metric-caption" id="savings-note">of income saved</span></div></article>
+          </section>
+
+          <section class="content-grid">
+            <article class="card cashflow-card" id="insights"><div class="card-heading"><div><div class="heading-row"><h2>Cash flow</h2><span class="info-dot" title="Daily income and expenses in the selected month">i</span></div><p>Your income and spending over time</p></div><div class="chart-legend"><span><i class="legend-income"></i>Income</span><span><i class="legend-expense"></i>Expenses</span></div></div><div class="chart-summary"><span><small>NET CASH FLOW</small><strong id="net-flow">₹0</strong></span><span class="chart-period">Daily · <span id="chart-month"></span></span></div><div class="chart-scroll"><div id="cashflow-chart" class="cashflow-chart" role="img" aria-label="Cash flow chart"></div></div><div class="chart-axis"><span>1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span id="month-last-day">30</span></div></article>
+            <article class="card spending-card"><div class="card-heading"><div><h2>Where it goes</h2><p>Your spending by category</p></div><button class="text-link" id="see-transactions" type="button">Details <span>↗</span></button></div><div class="spending-content"><div class="donut-wrap"><div id="donut-chart" class="donut-chart"><div class="donut-center"><strong id="donut-total">₹0</strong><span>Total spent</span></div></div></div><div class="category-list" id="category-list"></div></div></article>
+          </section>
+
+          <section class="content-grid lower-grid">
+            <article class="card transactions-card" id="transactions"><div class="card-heading transaction-heading"><div><div class="heading-row"><h2>Recent transactions</h2><span class="transaction-count" id="transaction-count">0</span></div><p>A closer look at what moved</p></div><button class="primary-button" id="add-transaction"><span>＋</span> Add transaction</button></div><div class="table-controls"><label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search transactions" aria-label="Search transactions" /><kbd>⌘ K</kbd></label><label class="filter-select-wrap"><span class="sr-only">Filter by type</span><select id="type-filter"><option value="all">All activity</option><option value="income">Income</option><option value="expense">Expenses</option></select><span>⌄</span></label></div><div class="table-scroll"><table><thead><tr><th>TRANSACTION</th><th>CATEGORY</th><th>DATE</th><th class="amount-col">AMOUNT</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="transaction-rows"></tbody></table><div class="empty-state" id="empty-state" hidden>No matching transactions. Try a different search, or add one above.</div></div><div class="table-footer"><span id="showing-label">Showing 0 transactions</span><button class="view-all" id="view-all">View all <span>→</span></button></div></article>
+            <article class="card budgets-card" id="budgets"><div class="card-heading"><div><div class="heading-row"><h2>Monthly budgets</h2><span class="budget-live-dot"></span></div><p>A gentle check-in on your goals</p></div><button class="more-button" aria-label="Budget options" title="Budget options">···</button></div><div class="budget-total"><span>Spent so far</span><strong id="budget-summary">₹0 <small>/ ₹0</small></strong></div><div class="budget-list" id="budget-list"></div><button class="budget-link" id="edit-budget" type="button">Manage budgets <span>↗</span></button></article>
+          </section>
+
+          <footer class="page-footer"><span><span class="footer-leaf">✳</span> Make room for what matters.</span><span>Finch · Local demo <i></i> Your data stays on this computer</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="transaction-dialog" class="dialog-card" aria-labelledby="dialog-title"><form id="transaction-form"><div class="dialog-head"><div><span class="dialog-eyebrow">YOUR ACTIVITY</span><h2 id="dialog-title">Add a transaction</h2><p>Keep your money picture up to date.</p></div><button type="button" class="dialog-close" aria-label="Close dialog">×</button></div><div class="type-toggle"><label><input type="radio" name="type" value="expense" checked /><span>↗ &nbsp;Expense</span></label><label><input type="radio" name="type" value="income" /><span>↙ &nbsp;Income</span></label></div><label class="field-label" for="transaction-name">Description</label><input class="form-input" id="transaction-name" name="name" maxlength="100" required placeholder="e.g. Coffee with a friend" /><div class="form-row"><div><label class="field-label" for="transaction-amount">Amount</label><div class="amount-input"><span>₹</span><input id="transaction-amount" name="amount" type="number" min="1" max="100000000" step="1" required placeholder="0" /></div></div><div><label class="field-label" for="transaction-category">Category</label><select class="form-input" id="transaction-category" name="category" required><option>Food & dining</option><option>Transport</option><option>Shopping</option><option>Housing</option><option>Health</option><option>Entertainment</option><option>Utilities</option><option>Education</option><option>Salary</option><option>Freelance</option><option>Other</option></select></div></div><div class="form-row"><div><label class="field-label" for="transaction-date">Date</label><input class="form-input" id="transaction-date" name="date" type="date" required /></div><div><label class="field-label" for="transaction-account">Account</label><select class="form-input" id="transaction-account" name="account"><option>Everyday card</option><option>Primary account</option><option>Cash wallet</option></select></div></div><div class="dialog-error" id="dialog-error" role="alert"></div><div class="dialog-actions"><button type="button" class="secondary-button dialog-cancel">Cancel</button><button class="primary-button" type="submit" id="save-transaction">Save transaction <span>→</span></button></div></form></dialog>
+    <dialog id="budget-dialog" class="dialog-card budget-dialog" aria-labelledby="budget-dialog-title"><form id="budget-form"><div class="dialog-head"><div><span class="dialog-eyebrow">YOUR MONTHLY PLAN</span><h2 id="budget-dialog-title">Manage budgets</h2><p>Set a comfortable monthly limit by category.</p></div><button type="button" class="budget-dialog-close dialog-close" aria-label="Close dialog">×</button></div><div class="budget-edit-fields" id="budget-edit-fields"></div><div class="dialog-error" id="budget-dialog-error" role="alert"></div><div class="dialog-actions"><button type="button" class="secondary-button budget-dialog-cancel">Cancel</button><button class="primary-button" type="submit" id="save-budgets">Save budgets <span>→</span></button></div></form></dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="sr-only" id="live-region" aria-live="polite"></div>
+  </body>
+</html>
