@@ -1,3 +1,5 @@
+import { safeColor } from './data-utils.mjs';
+
 const $ = (selector) => document.querySelector(selector);
 const currency = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
 const shortCurrency = (amount) => amount >= 100000 ? `₹${(amount / 100000).toFixed(1)}L` : amount >= 1000 ? `₹${(amount / 1000).toFixed(amount >= 10000 ? 0 : 1)}k` : currency.format(amount);
@@ -104,7 +106,8 @@ function renderBudgets(transactions) {
     const spent = expenses.filter((item) => item.category === budget.category).reduce((sum, item) => sum + item.amount, 0);
     const percent = Math.min(100, Math.round((spent / budget.limit) * 100));
     const overflow = spent > budget.limit;
-    return `<div class="budget-item"><div class="budget-head"><span class="budget-label"><i style="background:${budget.color}"></i>${escapeHtml(budget.category)}</span><span class="budget-amount"><strong>${shortCurrency(spent)}</strong> / ${shortCurrency(budget.limit)}</span></div><div class="budget-track" role="progressbar" aria-label="${escapeHtml(budget.category)} budget" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}"><span style="width:${percent}%;background:${overflow ? '#e17878' : budget.color}"></span></div></div>`;
+    const color = safeColor(budget.color);
+    return `<div class="budget-item"><div class="budget-head"><span class="budget-label"><i style="background:${color}"></i>${escapeHtml(budget.category)}</span><span class="budget-amount"><strong>${shortCurrency(spent)}</strong> / ${shortCurrency(budget.limit)}</span></div><div class="budget-track" role="progressbar" aria-label="${escapeHtml(budget.category)} budget" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}"><span style="width:${percent}%;background:${overflow ? '#e17878' : color}"></span></div></div>`;
   }).join('');
 }
 
@@ -245,7 +248,7 @@ $('#view-all').addEventListener('click', () => { showAll = !showAll; renderTrans
 $('#see-transactions').addEventListener('click', () => $('#transactions').scrollIntoView({ behavior: 'smooth' }));
 $('#edit-budget').addEventListener('click', () => {
   $('#budget-dialog-error').textContent = '';
-  $('#budget-edit-fields').innerHTML = data.budgets.map((budget) => `<label class="budget-edit-row"><span><i style="background:${budget.color}"></i>${escapeHtml(budget.category)}</span><span class="budget-edit-input"><b>₹</b><input name="${escapeHtml(budget.id)}" type="number" min="1" max="100000000" step="1" value="${budget.limit}" required aria-label="${escapeHtml(budget.category)} monthly limit" /></span></label>`).join('');
+  $('#budget-edit-fields').innerHTML = data.budgets.map((budget) => `<label class="budget-edit-row"><span><i style="background:${safeColor(budget.color)}"></i>${escapeHtml(budget.category)}</span><span class="budget-edit-input"><b>₹</b><input name="${escapeHtml(budget.id)}" type="number" min="1" max="100000000" step="1" value="${budget.limit}" required aria-label="${escapeHtml(budget.category)} monthly limit" /></span></label>`).join('');
   budgetDialog.showModal();
 });
 $('.budget-dialog-close').addEventListener('click', () => budgetDialog.close());
