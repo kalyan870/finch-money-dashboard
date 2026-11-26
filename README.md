@@ -36,3 +36,10 @@ GitHub Actions publishes the static files to GitHub Pages on pushes to `main`. T
 - `app.js` — dashboard interactions and local demo state
 - `demo-data.json` — fictional sample data
 - `preview-desktop.png` — desktop screenshot
+
+## Architecture
+
+
+![finch-money-dashboard architecture map](docs/images/finch-money-dashboard-architecture.png)
+
+[Architecture notes](docs/architecture.md) · [Editable SVG](docs/images/finch-money-dashboard-architecture.svg)
